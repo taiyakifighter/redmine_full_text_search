@@ -78,9 +78,12 @@ SHOW VARIABLES LIKE 'mroonga_version';
                  :title,
                  :content,
                  :tag_ids],
-                using: "PGroonga",
-                with: "normalizer = 'NormalizerNFKC121'",
                 name: "fts_targets_index_pgroonga"
+                using: "PGroonga",
+                with: [
+                  "tokenizer = 'TokenBigramIgnoreBlankSplitSymbolAlphaDigit'",
+                  "normalizer = 'NormalizerNFKC(\"unify_kana_case\", true, \"unify_hyphen_and_prolonged_sound_mark\", true, \"unify_middle_dot\", true, \"remove_symbol\", true)'",
+                ].join(", ")
       end
     end
   end
