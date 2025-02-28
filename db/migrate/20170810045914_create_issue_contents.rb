@@ -34,8 +34,8 @@ class CreateIssueContents < ActiveRecord::Migration[4.2]
                 name: "index_issue_contents_pgroonga",
                 using: "PGroonga",
                 with: [
-                  "tokenizer = 'TokenMecab'",
-                  "normalizer = 'NormalizerNFKC121'",
+                  "tokenizer = 'TokenBigramIgnoreBlankSplitSymbolAlphaDigit''",
+                  "normalizer = 'NormalizerNFKC(\"unify_kana_case\", true, \"unify_hyphen_and_prolonged_sound_mark\", true, \"unify_middle_dot\", true, \"remove_symbol\", true)'",
                 ].join(", ")
       end
     end
