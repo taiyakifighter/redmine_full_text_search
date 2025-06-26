@@ -78,7 +78,7 @@ SHOW VARIABLES LIKE 'mroonga_version';
                  :title,
                  :content,
                  :tag_ids],
-                name: "fts_targets_index_pgroonga"
+                name: "fts_targets_index_pgroonga",
                 using: "PGroonga",
                 with: [
                   "tokenizer = 'TokenBigramIgnoreBlankSplitSymbolAlphaDigit'",
